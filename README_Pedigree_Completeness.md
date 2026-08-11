@@ -7,11 +7,11 @@ This analysis was used to assess the **quality and depth of the South African Bo
 
 Two complementary views of pedigree completeness were used:
 
-1. **Overall pedigree depth and completeness** using `optiSel`.
-2. **Change in pedigree completeness through time** using the annual completeness output from POPREP.
+1. **Overall pedigree depth and completeness** using `optiSel`. See the script `Pedigree Completeness OptiSel.R`
+2. **Change in pedigree completeness through time** using the annual completeness output from POPREP. See the script `Graph pedigree completeness and number of animals.R`
 
 ---
-
+ 
 ## Pedigree used
 
 The analysis used the complete, loop-resolved pedigree:
