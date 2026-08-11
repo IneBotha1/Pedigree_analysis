@@ -4,6 +4,8 @@
 ## 1. Purpose
 
 This README documents the updated historical marginal genetic contribution sensitivity analysis for the South African Boerperd pedigree.
+See the detailed full script `Marigical_genetic_contribution_analysis_3_ref_pops.R`
+
 
 This is the version in which the three reference populations were:
 
