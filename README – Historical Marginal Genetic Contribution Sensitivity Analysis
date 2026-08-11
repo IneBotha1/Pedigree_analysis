@@ -1,0 +1,790 @@
+# README – Historical Marginal Genetic Contribution Sensitivity Analysis
+## Updated analysis using 1998 as the studbook-closure breakpoint
+
+## 1. Purpose
+
+This README documents the updated historical marginal genetic contribution sensitivity analysis for the South African Boerperd pedigree.
+
+This is the version in which the three reference populations were:
+
+1. 1973 cohort
+2. 1944–1997
+3. 1998–2024
+
+The historical sensitivity scenarios:
+
+- S1 = 29 animals
+- S2 = 39 animals
+- S3 = 343 animals
+
+The aim was to determine how much marginal genetic contribution from the historical pre-1973 pedigree persisted into later populations, and whether that estimate changed depending on how the historical population was defined.
+
+---
+
+## 2. Main analytical question
+
+The central question was:
+
+> How much marginal genetic contribution from animals representing the historical pre-1973 population is retained in later South African Boerperd reference populations, and how sensitive is that estimate to the way the historical population is defined?
+
+The analysis was therefore designed as a sensitivity analysis rather than as an attempt to claim that one historical definition was unquestionably correct.
+
+---
+
+## 3. Why a sensitivity analysis was necessary
+
+The oldest part of the pedigree contains incomplete birth-year information.
+
+This causes two problems:
+
+- confirmed ancestors of the 1973 cohort can have unknown birth years; and
+- additional animals with known pre-1973 birth years occur in the pedigree even if they were not selected specifically through the 1973 cohort.
+
+A single strict historical definition could therefore exclude potentially relevant animals or depend too heavily on one cohort.
+
+For this reason, three increasingly inclusive historical sets were compared.
+
+If S1, S2 and S3 give similar results, the historical contribution estimate is relatively robust to the chosen definition.
+
+If they differ strongly, the result is sensitive to how the incomplete early pedigree is defined.
+
+This sensitivity logic is a study-specific design choice, not a requirement imposed by visPedigree.
+
+---
+
+## 4. Historical scenarios
+
+### S1 – Restricted known-date ancestors
+
+S1 contained 29 animals that:
+
+- were confirmed ancestors of the 1973 cohort; and
+- had a known birth year before 1973.
+
+This was the most restrictive historical definition.
+
+Why it was used:
+S1 represented animals that could both be placed before 1973 from recorded birth-year information and be linked genealogically to the 1973 cohort.
+
+Limitation:
+S1 excludes confirmed ancestors of the 1973 cohort when their birth year is unknown.
+
+---
+
+### S2 – S1 plus confirmed ancestors with unknown birth years
+
+S2 contained 39 animals:
+
+- the 29 animals in S1; plus
+- 10 additional confirmed ancestors of the 1973 cohort whose birth years were unknown.
+
+Why it was used:
+S2 tested whether missing birth-year information materially changed the estimated historical contribution.
+
+The key S1 versus S2 question was:
+
+> Does including confirmed ancestors of the 1973 cohort whose birth dates are unknown materially change the result?
+
+If S1 and S2 are similar, those missing birth dates have relatively little effect on the estimate.
+
+If they differ substantially, uncertainty in the early birth-year records matters.
+
+---
+
+### S3 – Broad recorded pre-1973 set
+
+S3 contained 343 animals with:
+
+- a known birth year; and
+- birth year before 1973.
+
+These animals did not have to be selected specifically because they were ancestors of the 1973 cohort.
+
+Why it was used:
+S3 tested whether using a broader pre-1973 historical set changed the estimated contribution compared with restricting the historical pool to animals linked specifically to the 1973 cohort.
+
+Important wording:
+S3 should not be called the complete historical genetic base of the breed.
+
+A safer description is:
+
+> S3 represented the broadest pre-1973 historical set identifiable from animals with recorded birth years in the available pedigree.
+
+The 343 animals are therefore an analytical historical set, not a historical census estimate.
+
+---
+
+## 5. Relationship among the scenarios
+
+The expected historical-pool sizes were:
+
+S1 = 29  
+S2 = 39  
+S3 = 343
+
+The scripts also checked that:
+
+- S1 was contained within S2; and
+- S1 was contained within S3.
+
+These are not three biological populations. They are three alternative analytical definitions of the uncertain historical population.
+
+---
+
+## 6. Reference populations in the updated analysis
+
+### Reference population 1 – 1973 cohort
+
+All animals born in 1973.
+
+This cohort was retained as a specific reference population because it marks the formal historical boundary used in the study.
+
+### Reference population 2 – 1944–1997
+
+All animals born from 1944 through 1997, inclusive.
+
+This represents the recorded pedigree period before the 1998 studbook-closure breakpoint used in the study.
+
+Importantly, this population overlaps with:
+
+- some pre-1973 historical animals; and
+- the 1973 cohort itself.
+
+That overlap was handled deliberately rather than forcing every animal into one mutually exclusive analytical group.
+
+### Reference population 3 – 1998–2024
+
+All animals born from 1998 through 2024, inclusive.
+
+This was the post-closure reference population.
+
+Animals born in 2025 or later were excluded.
+
+---
+
+## 7. Why 1998 was used
+
+The updated analysis used 1998 as the breakpoint because the project treated 1998 as the year in which the South African Boerperd studbook closed.
+
+This allowed the analysis to compare a pre-1998 period with a 1998–2024 post-closure reference population.
+
+Important caution:
+
+The analysis can show that marginal historical contribution differs between reference periods.
+
+It cannot by itself prove that any change was caused by studbook closure.
+
+A defensible statement is:
+
+> Historical contribution was compared between populations defined before and from the 1998 studbook-closure breakpoint.
+
+Any causal interpretation requires additional evidence.
+
+---
+
+## 8. Why the reference populations stayed fixed across S1, S2 and S3
+
+For a sensitivity analysis, the factor deliberately changed was the definition of the historical pool.
+
+The target/reference animals were therefore held constant.
+
+Within a reference period:
+
+S1 vs S2 vs S3
+
+tests the effect of the historical-pool definition.
+
+If the reference population also changed, differences could not be attributed clearly to S1, S2 or S3.
+
+This was a project-specific analytical design choice.
+
+---
+
+## 9. Important overlap issue in the 1944–1997 reference population
+
+The complete 1944–1997 reference population overlaps with:
+
+- the 1973 cohort; and
+- some animals in the historical pre-1973 sets.
+
+A CFC-style grouping system permits only one numeric group assignment per animal.
+
+Therefore, the complete 1944–1997 reference population could not be reconstructed accurately from a single CFC group.
+
+To solve this, complete reference-population ID lists were exported and used directly in the visPedigree analysis:
+
+reference_IDs_1973.csv  
+reference_IDs_1944_1997.csv  
+reference_IDs_1998_2024.csv
+
+This ensured that reference-population membership was defined correctly even where analytical groups overlapped.
+
+---
+
+## 10. Pedigree used
+
+The marginal contribution calculation used the complete, loop-resolved and uncut pedigree.
+
+The underlying animal–sire–dam relationships were retained.
+
+Only the historical-pool definition changed between S1, S2 and S3.
+
+---
+
+## 11. Why the pedigree was kept complete
+
+The question concerned how historical animals contributed through the recorded genealogy to later reference populations.
+
+For that reason, the ancestral pathways linking ancestors and descendants needed to remain available to the contribution algorithm.
+
+The safest wording is:
+
+> Historical groups were defined using birth year and ancestry, while the complete recorded pedigree structure was retained for marginal-contribution calculation.
+
+Avoid saying that truncating the pedigree would create incorrect founders.
+
+A more precise statement is:
+
+> Truncating the pedigree changes the pedigree base and removes ancestral relationships outside the retained pedigree.
+
+Because the analysis aimed to measure contribution through the available recorded genealogy, the pedigree was left uncut.
+
+---
+
+## 12. Preparing the pedigree in visPedigree
+
+The complete loop-resolved pedigree was converted to a tidyped object in the R package visPedigree.
+
+The analysis used the general form:
+
+```r
+ped_tidy <- tidyped(
+  ped_input,
+  addgen = TRUE,
+  addnum = TRUE
+)
+```
+
+This prepared the pedigree for the contribution analysis.
+
+For manuscript wording, it is sufficient to state:
+
+> The complete loop-resolved pedigree was converted to a tidyped pedigree object in visPedigree before marginal ancestor contribution analysis.
+
+---
+
+## 13. Marginal ancestor contribution analysis
+
+For each reference population, marginal ancestor contributions were calculated using:
+
+```r
+pedcontrib(
+  ped = ped_tidy,
+  reference = reference_ids,
+  mode = "ancestor",
+  top = nrow(ped_tidy)
+)
+```
+
+This was run separately for:
+
+- 1973 cohort
+- 1944–1997
+- 1998–2024
+
+The returned ancestor tables were then used to calculate S1, S2 and S3 historical contributions.
+
+---
+
+## 14. Why mode = "ancestor" was used
+
+The study question concerned historical ancestors rather than founder-only contributions.
+
+Therefore:
+
+```r
+mode = "ancestor"
+```
+
+was used.
+
+The ancestor-contribution method implemented in visPedigree follows the marginal ancestor framework associated with the probability-of-gene-origin approach described by Boichard and colleagues.
+
+---
+
+## 15. What marginal contribution means
+
+Ancestors in a pedigree are not independent.
+
+An older ancestor can contribute through a later influential descendant. If both were treated as independent full contributions, pedigree pathways would overlap.
+
+The marginal ancestor procedure works iteratively and assigns an ancestor the additional contribution not already explained by more influential ancestors selected earlier.
+
+For this study, marginal contribution was appropriate because the question concerned:
+
+> the retained influence of historical ancestors while accounting for overlapping pedigree pathways.
+
+This should not be phrased as marginal contribution being universally better than all other pedigree methods.
+
+---
+
+## 16. Why simple ancestor counts were not the main measure
+
+A count tells us how many ancestors are represented.
+
+It does not tell us how strongly they contributed.
+
+One ancestor may have a large retained influence in the reference population, while another may have only a small marginal contribution.
+
+Therefore, the main response variable was marginal genetic contribution rather than ancestor count alone.
+
+---
+
+## 17. Why top = nrow(ped_tidy) was used
+
+The top argument controls how many high-ranking contributors are returned by pedcontrib().
+
+The aim was to evaluate the contribution of the complete historical pool, including historical animals with small marginal contributions.
+
+Therefore:
+
+```r
+top = nrow(ped_tidy)
+```
+
+was used so that the analysis was not restricted to a small top-ranked subset.
+
+---
+
+## 18. Main fields in the returned ancestor table
+
+The ancestor output contained fields including:
+
+Ind  
+Contrib  
+CumContrib  
+Rank
+
+For the historical-pool calculation, the key field was:
+
+Contrib
+
+because this represented the marginal contribution assigned to each returned ancestor.
+
+---
+
+## 19. How the contribution of S1, S2 and S3 was calculated
+
+For each reference population:
+
+1. Run pedcontrib() using the complete pedigree.
+2. Obtain the returned marginal ancestor table.
+3. Match the returned ancestor IDs to the S1, S2 or S3 ID list.
+4. Retain the matched historical animals.
+5. Sum their Contrib values.
+6. Multiply by 100 to express the result as a percentage.
+
+Conceptually:
+
+```r
+matched <- ancestor_table[
+  ancestor_table$Ind %in% historical_ids,
+  ,
+  drop = FALSE
+]
+
+contribution <- sum(
+  matched$Contrib,
+  na.rm = TRUE
+)
+
+contribution_percent <- 100 * contribution
+```
+
+The historical-pool contribution can be represented as:
+
+C(s,r) = sum of q(i,r) for all historical animals i in historical set H(s)
+
+where:
+
+- C(s,r) is the summed marginal contribution for scenario s in reference population r;
+- H(s) is the historical animal set;
+- q(i,r) is the marginal contribution of animal i to reference population r.
+
+This summation step is our project-specific analysis of the pedcontrib() output.
+
+---
+
+## 20. Meaning of the final percentage
+
+The final percentage represents:
+
+> the summed marginal genetic contribution assigned to animals belonging to the defined historical pool for a specified reference population.
+
+It is not:
+
+- the percentage of all pedigree animals born before 1973;
+- the proportion of all ancestors that were historical;
+- the founder proportion;
+- a census estimate; or
+- a molecular genomic ancestry percentage.
+
+It is a pedigree-based marginal contribution estimate.
+
+---
+
+## 21. Unmatched historical animals
+
+Some S1, S2 or S3 animals may not appear as separate marginal contributors in a particular reference population's returned ancestor table.
+
+The safest wording is:
+
+> An unmatched historical animal did not appear as a separately returned marginal contributor in that reference population's ancestor table.
+
+Possible reasons include:
+
+- the animal was not ancestral to that reference population; or
+- it did not retain a separate marginal contribution after overlapping ancestry was accounted for.
+
+Do not automatically state that every unmatched animal had zero genetic importance without checking its pedigree position.
+
+---
+
+## 22. Contribution-total quality check
+
+Because the analysis requested the full returned contributor table, the Contrib values were checked to ensure that the complete table summed to approximately one:
+
+```r
+sum(
+  ancestor_table$Contrib,
+  na.rm = TRUE
+)
+```
+
+This served as a project quality-control check.
+
+---
+
+## 23. Number of estimates produced
+
+The analysis produced:
+
+3 historical scenarios × 3 reference populations = 9 estimates
+
+### 1973 cohort
+- S1
+- S2
+- S3
+
+### 1944–1997
+- S1
+- S2
+- S3
+
+### 1998–2024
+- S1
+- S2
+- S3
+
+---
+
+## 24. How the sensitivity comparison should be read
+
+Within each reference population, compare:
+
+S1 vs S2 vs S3
+
+### S1 vs S2
+Tests sensitivity to inclusion of confirmed ancestors with unknown birth years.
+
+### S1/S2 vs S3
+Tests sensitivity to expanding the historical definition from 1973-cohort ancestors to the broader set of animals with recorded pre-1973 birth years.
+
+The main question is not which scenario is absolutely correct.
+
+The main question is:
+
+> Does the interpretation of historical contribution change depending on which reasonable historical definition is used?
+
+---
+
+## 25. How the reference-period comparison should be read
+
+For a given scenario, contribution can also be compared across:
+
+1973 cohort  
+1944–1997  
+1998–2024
+
+This gives a descriptive view of how the historical marginal contribution is represented in the different reference populations.
+
+The 1998–2024 population is particularly relevant because it corresponds to the post-studbook-closure period used in the study design.
+
+However, this analysis alone cannot show that changes were caused by studbook closure.
+
+---
+
+## 26. Supporting effective-ancestor statistics
+
+The pedcontrib() summaries also returned supporting ancestry statistics, including the effective number of ancestors.
+
+These measures describe ancestry concentration in a reference population.
+
+They are not the same quantity as:
+
+sum of Contrib for S1, S2 or S3.
+
+The historical-pool percentage and the effective number of ancestors should therefore be interpreted separately.
+
+---
+
+## 27. Graphical presentation
+
+The nine historical-pool estimates were presented in a grouped bar graph.
+
+The graph used:
+
+- x-axis = reference population;
+- y-axis = marginal genetic contribution (%);
+- adjacent bars = S1, S2 and S3.
+
+The reference populations were:
+
+- 1973 cohort
+- 1944–1997
+- 1998–2024
+
+The graph was designed to show:
+
+1. whether S1, S2 and S3 differed within each reference population; and
+2. how historical marginal contribution differed across the defined reference populations.
+
+---
+
+## 28. Main quality-control checks
+
+The workflow included checks for:
+
+### Historical-pool size
+S1 = 29  
+S2 = 39  
+S3 = 343
+
+### Scenario containment
+S1 contained within S2  
+S1 contained within S3
+
+### Pedigree consistency
+Individual, sire and dam records remained unchanged between scenario definitions.
+
+### Reference-population membership
+Explicit reference ID files were used, especially because the 1944–1997 population overlaps with the 1973 cohort and historical sets.
+
+### Presence in tidyped pedigree
+Reference IDs were checked against the prepared pedigree.
+
+### Contribution totals
+The full returned Contrib table was checked for an approximately unit total.
+
+---
+
+## 29. What is established and what is study-specific?
+
+| Component | Classification |
+|---|---|
+| visPedigree::pedcontrib() | Established software method |
+| mode = "ancestor" | Official software option |
+| Marginal ancestor algorithm | Established methodological framework |
+| Boichard probability-of-gene-origin framework | Scientific basis |
+| top controls number of returned contributors | Official software behaviour |
+| S1 = 29 | Project data |
+| S2 = 39 | Project data |
+| S3 = 343 | Project data |
+| S1/S2/S3 sensitivity comparison | Study-specific design |
+| 1973 historical boundary | Study-specific historical design |
+| 1998 studbook-closure breakpoint | Study-specific historical design |
+| 1973 / 1944–1997 / 1998–2024 reference populations | Study-specific design |
+| Explicit reference ID lists | Project-specific implementation |
+| Summing matched Contrib values | Project-specific analysis of established output |
+| Similar S1/S2/S3 interpreted as robustness | Sensitivity-analysis interpretation |
+| Claim that closure caused a contribution change | Not established by this analysis alone |
+
+---
+
+## 30. Statements to avoid
+
+Avoid:
+
+> S3 is the complete historical genetic base.
+
+Use:
+
+> S3 was the broadest pre-1973 historical set identifiable from animals with recorded birth years in the available pedigree.
+
+Avoid:
+
+> Truncating the pedigree creates incorrect founders.
+
+Use:
+
+> Truncating the pedigree changes the pedigree base and removes ancestral relationships outside the retained pedigree.
+
+Avoid:
+
+> Marginal contribution is better than all other pedigree methods.
+
+Use:
+
+> Marginal ancestor contribution was selected because the study question concerned retained historical influence while accounting for overlapping pedigree pathways.
+
+Avoid:
+
+> Every unmatched historical animal contributed nothing.
+
+Use:
+
+> Unmatched historical animals did not appear as separate marginal contributors in the returned ancestor table for that reference population.
+
+Avoid:
+
+> Studbook closure caused the historical contribution to change.
+
+Use:
+
+> Historical contribution was compared across reference populations defined relative to the 1998 studbook-closure breakpoint; causal interpretation requires additional evidence.
+
+---
+
+## 31. Reproducibility files to retain
+
+Keep:
+
+1. complete loop-resolved pedigree;
+2. S1 ID list;
+3. S2 ID list;
+4. S3 ID list;
+5. reference_IDs_1973.csv;
+6. reference_IDs_1944_1997.csv;
+7. reference_IDs_1998_2024.csv;
+8. historical-pool membership checks;
+9. reference-population checks;
+10. complete pedcontrib() ancestor tables;
+11. matched historical ancestor tables;
+12. unmatched historical IDs;
+13. final contribution summary;
+14. supporting effective-ancestor summaries;
+15. grouped contribution figure;
+16. complete R script; and
+17. sessionInfo() output.
+
+---
+
+## 32. Workflow summary
+
+```text
+Complete loop-resolved pedigree
+            |
+            v
+Define alternative historical sets
+            |
+            +---- S1 = 29
+            |     known pre-1973 ancestors of 1973 cohort
+            |
+            +---- S2 = 39
+            |     S1 + confirmed ancestors with unknown birth year
+            |
+            +---- S3 = 343
+                  all animals with known birth year < 1973
+            |
+            v
+Keep underlying genealogy unchanged
+            |
+            v
+Prepare pedigree with tidyped()
+            |
+            v
+Use explicit reference-population ID lists
+            |
+            +---- 1973 cohort
+            +---- 1944–1997
+            +---- 1998–2024
+            |
+            v
+Run pedcontrib(
+  mode = "ancestor",
+  top = nrow(ped_tidy)
+)
+            |
+            v
+Obtain marginal ancestor table
+            |
+            v
+Match returned ancestors to S1 / S2 / S3
+            |
+            v
+Sum Contrib values
+            |
+            v
+Convert to percentage
+            |
+            v
+Compare S1 / S2 / S3
+            |
+            v
+Assess sensitivity to historical-pool definition
+```
+
+---
+
+## 33. Short Methods-style explanation
+
+The complete loop-resolved South African Boerperd pedigree was retained for historical marginal contribution analysis. To evaluate sensitivity to incomplete early pedigree records, three alternative historical sets were defined. S1 comprised 29 confirmed ancestors of the 1973 cohort with known birth years before 1973; S2 additionally included 10 confirmed ancestors of the 1973 cohort with unknown birth years; and S3 comprised all 343 animals in the pedigree with known birth years before 1973. Marginal ancestor contributions were calculated using `visPedigree::pedcontrib()` for three fixed reference populations: the 1973 cohort, animals born from 1944–1997, and animals born from 1998–2024. Explicit reference-population ID lists were used because the 1944–1997 population overlapped with the 1973 cohort and with some historical animals. For each reference population, returned marginal ancestor IDs were matched to S1, S2 and S3, and the corresponding `Contrib` values were summed and expressed as percentages. The resulting scenario estimates were compared to evaluate the sensitivity of historical contribution estimates to the operational definition of the early pedigree population.
+
+---
+
+## 34. Scientific methodological basis
+
+Boichard, D., Maignel, L., & Verrier, E. (1997).
+
+The value of using probabilities of gene origin to measure genetic variability in a population.
+
+Genetics Selection Evolution, 29, 5–23.
+
+This paper provides the scientific basis for the probability-of-gene-origin and effective-ancestor framework underlying marginal ancestor contribution analysis.
+
+---
+
+## 35. Software
+
+The analysis was performed using the R package:
+
+visPedigree
+
+with the function:
+
+pedcontrib()
+
+and:
+
+mode = "ancestor"
+
+
+---
+
+## 36. Key point to remember
+
+> The genealogy stayed complete; the historical definition changed.
+
+The sensitivity analysis asked whether the historical contribution estimate changed when the uncertain pre-1973 animal set was defined as:
+
+29 animals  
+39 animals  
+343 animals
+
+The updated version then evaluated those scenarios against:
+
+1973 cohort  
+1944–1997  
+1998–2024
+
+The use of 1998–2024 as the post-closure reference population is the key difference between this analysis and the earlier version that used different later-year boundaries.
